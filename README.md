@@ -104,6 +104,33 @@ bash tests/test-logging.sh
 
 Os testes verificam sintaxe, ajuda, simulacao e argumentos invalidos. Ainda nao substituem testes de integracao em Ubuntu.
 
+## Interface gráfica (protótipo)
+
+O projeto possui uma interface desktop experimental
+desenvolvida em Python e PySide6 (Qt).
+
+### Executar no Windows
+
+```powershell
+py -3 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements-gui.txt
+.\.venv\Scripts\python.exe gui\main.py
+```
+
+No Windows, a simulação utiliza o Git Bash instalado
+em `C:\Program Files\Git\bin\bash.exe`.
+
+### Segurança
+
+- A interface atualmente executa somente `--dry-run`.
+- Nenhuma instalação real é iniciada pela interface.
+- O instalador Bash continua destinado ao Ubuntu.
+- O funcionamento gráfico no Ubuntu ainda precisa ser validado.
+
+A interface está em desenvolvimento e não faz parte
+das funcionalidades consolidadas na versão v1.2.0.
+
+---
 ## 📂 Estrutura do projeto
 
 ```text
