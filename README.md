@@ -50,7 +50,7 @@ O foco é **praticar Linux, Bash, Git/GitHub e fundamentos de suporte técnico**
 - Ubuntu instalado (não execute a partir de uma sessão Live USB).
 - Conexão com a internet e usuário com permissão para utilizar `sudo`.
 - Git instalado para clonar o repositório.
-- Acesso ao repositório no GitHub, enquanto ele permanecer privado.
+- O repositório é público e pode ser clonado sem autenticação no GitHub.
 
 Se precisar instalar o Git no Ubuntu:
 
@@ -99,6 +99,7 @@ Execute:
 
 ```bash
 bash tests/test-dry-run.sh
+bash tests/test-logging.sh
 ```
 
 Os testes verificam sintaxe, ajuda, simulacao e argumentos invalidos. Ainda nao substituem testes de integracao em Ubuntu.
@@ -123,9 +124,46 @@ souzasdev-ubuntu-setup/
 - O script **não** particiona ou formata discos, modifica drivers de vídeo deliberadamente nem reinicia a máquina.
 - A instalação exige privilégios administrativos para os comandos APT.
 - Não armazene senhas, tokens, chaves privadas ou arquivos `.env` no repositório.
-- O projeto agora inclui simulacao e testes Bash basicos. Logs proprios e testes de integracao ainda estao planejados.
+- O projeto inclui simulação, testes Bash e logs em desenvolvimento. A instalação real ainda não possui testes de integração.
 - O uso previsto é em uma instalação Ubuntu. Outros ambientes, como Windows/Git Bash, não são adequados à instalação real; compatibilidade com WSL não foi validada.
 
+## 📝 Logs e diagnóstico (v1.2.0 em desenvolvimento)
+
+Durante uma execução real no Ubuntu, o script registra as mensagens
+do terminal em arquivos locais para facilitar o diagnóstico.
+
+**Diretório padrão:**
+
+`~/.local/state/souzasdev-ubuntu-setup/`
+
+O diretório pode ser alterado pela variável `XDG_STATE_HOME`.
+
+### Funcionalidades
+
+- Logs com data, hora e identificador do processo.
+- Registro da saída padrão e de erros com `tee`.
+- Identificação de falhas por linha e código de saída.
+- Permissões restritas para diretórios e arquivos.
+- `--dry-run` e `--help` sem criação de logs.
+
+### Consultando os registros
+
+```bash
+ls -la ~/.local/state/souzasdev-ubuntu-setup/
+tail -n 50 ~/.local/state/souzasdev-ubuntu-setup/*.log
+```
+
+### Limitações
+
+O sistema de logs é inicializado após as verificações do ambiente.
+Falhas anteriores a essa etapa podem não ser registradas.
+
+Os registros podem conter informações do sistema. Revise seu
+conteúdo antes de compartilhá-los.
+
+Os testes atuais não executam instalações reais com APT.
+
+---
 ## 🗺️ Roadmap
 
 As próximas melhorias serão desenvolvidas separadamente, em branches próprias, com revisão antes da integração à `main`.

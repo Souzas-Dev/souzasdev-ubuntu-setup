@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Souza's Dev — Ubuntu Setup v1.0
 # Instala ferramentas essenciais APOS a instalacao definitiva do Ubuntu.
-set -euo pipefail
+set -Eeuo pipefail
 
 info() { printf '\n[Souzas Dev] %s\n' "$*"; }
 falha() { printf '\n[ERRO] %s\n' "$*" >&2; exit 1; }
@@ -61,6 +61,36 @@ fi
 
 command -v apt-get >/dev/null 2>&1 || falha "apt-get nao encontrado."
 command -v sudo >/dev/null 2>&1 || falha "sudo nao encontrado."
+
+# Preparacao segura dos registros
+command -v tee >/dev/null 2>&1 || falha "tee nao encontrado."
+
+umask 077
+LOG_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/souzasdev-ubuntu-setup"
+
+mkdir -p -- "$LOG_DIR"
+chmod 700 -- "$LOG_DIR"
+
+LOG_FILE="$LOG_DIR/setup-$(date +%Y%m%d-%H%M%S)-$$.log"
+
+# Tratamento de falhas
+on_error() {
+    local status="$1"
+    local linha="$2"
+
+    trap - ERR
+    printf '\n[ERRO] Falha na linha %s (codigo %s).\n' "$linha" "$status" >&2
+    printf '[ERRO] Consulte o log: %s\n' "$LOG_FILE" >&2
+
+    exit "$status"
+}
+
+# Registra a saida no terminal e no arquivo
+exec > >(tee -a "$LOG_FILE") 2>&1
+
+trap 'on_error "$?" "$LINENO"' ERR
+
+info "Log desta execucao: $LOG_FILE"
 
 info "Ubuntu ${VERSION_ID:-} | Usuario: ${USER:-desconhecido}"
 info "Pedindo permissao de administrador (sudo)..."
