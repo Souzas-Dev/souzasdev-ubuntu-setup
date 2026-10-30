@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🐧 Souza's Dev — Ubuntu Setup
+# 🐧 Souzas Dev — Ubuntu Setup
 
 **Automação em Bash para preparar o Ubuntu com ferramentas essenciais de desenvolvimento e suporte técnico.**
 
@@ -184,6 +184,6 @@ As próximas melhorias serão desenvolvidas separadamente, em branches próprias
 
 <div align="center">
 
-Desenvolvido como projeto de estudos por **Souza's Dev**.
+Desenvolvido como projeto de estudos por **Souzas Dev**.
 
 </div>

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Souza's Dev — Ubuntu Setup v1.0
+# Souzas Dev — Ubuntu Setup v1.0
 # Instala ferramentas essenciais APOS a instalacao definitiva do Ubuntu.
 set -Eeuo pipefail
 
