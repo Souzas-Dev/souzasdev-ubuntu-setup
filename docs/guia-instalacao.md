@@ -17,8 +17,8 @@ sudo apt-get install -y git
 ## 2. Clone o repositório
 
 ```bash
-git clone https://github.com/Souzas-Dev/souzasdev-ubuntu-setup.git
-cd souzasdev-ubuntu-setup
+git clone https://github.com/Souzas-Dev/ubuntu-workstation-setup.git
+cd ubuntu-workstation-setup
 ```
 
 > Se o repositório estiver privado, será necessário possuir acesso e autenticar-se no GitHub.

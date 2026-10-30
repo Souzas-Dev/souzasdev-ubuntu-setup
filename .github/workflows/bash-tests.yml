@@ -21,3 +21,6 @@ jobs:
 
       - name: Run automated tests
         run: bash tests/test-dry-run.sh
+
+      - name: Test logging and error handling
+        run: bash tests/test-logging.sh
