@@ -1,43 +1,125 @@
-# Souza's Dev — Ubuntu Setup
+<div align="center">
 
-**Versão 1.0** — Primeiro projeto de automação Bash para preparar o Ubuntu após uma instalação limpa.
+# 🐧 Souza's Dev — Ubuntu Setup
 
-## O que faz
+**Automação em Bash para preparar o Ubuntu com ferramentas essenciais de desenvolvimento e suporte técnico.**
 
-- Verifica se o sistema é Ubuntu instalado de verdade (não a sessão Live USB).
-- Atualiza a lista de pacotes e aplica atualizações disponíveis.
-- Instala ferramentas essenciais: Git, Curl, Wget, Python 3, venv, pip, ferramentas de compilação, cliente SSH, htop, tree, zip/unzip, jq e pciutils.
-- Exibe informações básicas da GPU e do espaço em disco.
-- **Não** particiona, formata, altera drivers de vídeo ou reinicia automaticamente.
+![Versão](https://img.shields.io/badge/vers%C3%A3o-v1.0.0-2563eb?style=flat-square)
+![Bash](https://img.shields.io/badge/shell-Bash-4EAA25?style=flat-square&logo=gnubash&logoColor=white)
+![Ubuntu](https://img.shields.io/badge/plataforma-Ubuntu-E95420?style=flat-square&logo=ubuntu&logoColor=white)
+![Status](https://img.shields.io/badge/status-em%20evolu%C3%A7%C3%A3o-64748b?style=flat-square)
 
-## Como usar no Ubuntu instalado
+[Funcionalidades](#-funcionalidades) · [Como usar](#-como-usar) · [Segurança](#-segurança-e-limitações) · [Roadmap](#-roadmap)
 
-Abra um terminal dentro da pasta deste projeto e execute:
+</div>
+
+---
+
+## 📌 Sobre o projeto
+
+O **Ubuntu Setup** é um projeto de estudo e automação criado para facilitar a preparação inicial de um Ubuntu instalado. Em vez de configurar cada ferramenta manualmente, um script Bash reúne as principais etapas de atualização, instalação e verificação do ambiente.
+
+O foco é **praticar Linux, Bash, Git/GitHub e fundamentos de suporte técnico** com um projeto real, documentado e versionado.
+
+> **Versão atual: v1.0.0.** Esta é a primeira versão funcional do script. Os aprimoramentos serão desenvolvidos em branches e revisados por Pull Requests.
+
+## ✨ Funcionalidades
+
+- Confirma que o sistema identificado é Ubuntu.
+- Impede a execução como usuário `root` e tenta bloquear sessões Live USB.
+- Atualiza o índice APT e **executa a atualização dos pacotes instalados**.
+- Instala ferramentas essenciais para desenvolvimento e diagnóstico.
+- Verifica a presença de alguns programas após a instalação.
+- Exibe informações sobre a placa de vídeo e o espaço livre na partição principal.
+- Informa quando o sistema recomenda reinicialização, **sem reiniciar automaticamente**.
+
+### Ferramentas instaladas
+
+| Categoria | Pacotes |
+| --- | --- |
+| Versionamento e transferência | `git`, `curl`, `wget`, `ca-certificates` |
+| Python | `python3`, `python3-pip`, `python3-venv` |
+| Desenvolvimento | `build-essential` |
+| Acesso remoto | `openssh-client` |
+| Diagnóstico e utilitários | `htop`, `tree`, `jq`, `pciutils`, `zip`, `unzip` |
+
+## 🚀 Como usar
+
+### 1. Pré-requisitos
+
+- Ubuntu instalado (não execute a partir de uma sessão Live USB).
+- Conexão com a internet e usuário com permissão para utilizar `sudo`.
+- Git instalado para clonar o repositório.
+- Acesso ao repositório no GitHub, enquanto ele permanecer privado.
+
+Se precisar instalar o Git no Ubuntu:
 
 ```bash
+sudo apt-get update
+sudo apt-get install -y git
+```
+
+### 2. Clone o projeto
+
+```bash
+git clone https://github.com/Souzas-Dev/souzasdev-ubuntu-setup.git
+cd souzasdev-ubuntu-setup
+```
+
+### 3. Leia e execute o script
+
+Confira o conteúdo antes de executar, pois ele modifica pacotes do sistema:
+
+```bash
+cat scripts/setup-ubuntu.sh
 bash scripts/setup-ubuntu.sh
 ```
 
-Você precisará da senha do usuário para autorizar o `sudo`. É necessária conexão com a internet.
+O próprio script solicitará autorização via `sudo`. **Não execute com `sudo bash scripts/setup-ubuntu.sh`**, pois ele exige que o processo seja iniciado por um usuário comum.
 
-**Não execute enquanto estiver testando o Ubuntu pelo pendrive.** O script bloqueia esse uso.
-
-## O que ficou fora da versão 1
-
-Node.js, VS Code, autenticação no GitHub e ferramentas de jogos serão configurados e documentados em etapas próprias. Assim mantemos o script básico, previsível e fácil de estudar.
-
-## Estrutura
+## 📂 Estrutura do projeto
 
 ```text
 souzasdev-ubuntu-setup/
 ├── scripts/
-│   └── setup-ubuntu.sh
+│   └── setup-ubuntu.sh       # Automação principal
 ├── docs/
-│   └── guia-instalacao.md
-├── .gitignore
-└── README.md
+│   └── guia-instalacao.md    # Passo a passo de execução
+├── .gitignore                # Arquivos excluídos do Git
+└── README.md                 # Apresentação do projeto
 ```
 
-## Segurança
+📖 [Guia completo de instalação](docs/guia-instalacao.md) · [Código-fonte do script](scripts/setup-ubuntu.sh) · [Marco inicial v1.0.0](https://github.com/Souzas-Dev/souzasdev-ubuntu-setup/tree/v1.0.0)
 
-Leia o script antes de executar. Não inclua senhas, tokens ou arquivos `.env` no GitHub. A automação instala pacotes com privilégios administrativos, mas não modifica os discos deliberadamente.
+## 🛡️ Segurança e limitações
+
+- Na **v1.0**, o comando `apt-get upgrade -y` é executado automaticamente. Atualizações podem alterar pacotes importantes; faça backup e revise o script antes de rodar.
+- O script **não** particiona ou formata discos, modifica drivers de vídeo deliberadamente nem reinicia a máquina.
+- A instalação exige privilégios administrativos para os comandos APT.
+- Não armazene senhas, tokens, chaves privadas ou arquivos `.env` no repositório.
+- A versão atual **não possui modo de simulação, logs próprios ou suíte automatizada de testes**. Esses recursos estão no planejamento.
+- O uso previsto é em uma instalação Ubuntu. Outros ambientes, como Windows/Git Bash, não são adequados à instalação real; compatibilidade com WSL não foi validada.
+
+## 🗺️ Roadmap
+
+As próximas melhorias serão desenvolvidas separadamente, em branches próprias, com revisão antes da integração à `main`.
+
+- [ ] Modo `--dry-run` para simular comandos com segurança.
+- [ ] Registros de execução (logs) e tratamento de erros mais detalhado.
+- [ ] Testes automatizados de sintaxe e comportamento básico.
+- [ ] Instalação modular por grupos de ferramentas.
+- [ ] Configurações opcionais para ambiente de desenvolvimento.
+
+> O objetivo é evoluir o projeto gradualmente, entendendo cada alteração em vez de apenas automatizar tudo de uma vez.
+
+## 🎯 Aprendizados trabalhados
+
+**Bash e automação** · **Administração Linux** · **APT e permissões** · **Git e GitHub** · **Documentação técnica** · **Troubleshooting**
+
+---
+
+<div align="center">
+
+Desenvolvido como projeto de estudos por **Souza's Dev**.
+
+</div>
