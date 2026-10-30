@@ -1,0 +1,23 @@
+name: Bash Tests
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  bash-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check Bash syntax
+        run: bash -n scripts/setup-ubuntu.sh
+
+      - name: Run automated tests
+        run: bash tests/test-dry-run.sh
