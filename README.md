@@ -4,7 +4,7 @@
 
 **Automação em Bash para preparar o Ubuntu com ferramentas essenciais de desenvolvimento e suporte técnico.**
 
-![Versão](https://img.shields.io/badge/vers%C3%A3o-v1.0.0-2563eb?style=flat-square)
+![Versão](https://img.shields.io/badge/vers%C3%A3o-v1.1.0-2563eb?style=flat-square)
 ![Bash](https://img.shields.io/badge/shell-Bash-4EAA25?style=flat-square&logo=gnubash&logoColor=white)
 ![Ubuntu](https://img.shields.io/badge/plataforma-Ubuntu-E95420?style=flat-square&logo=ubuntu&logoColor=white)
 ![Status](https://img.shields.io/badge/status-em%20evolu%C3%A7%C3%A3o-64748b?style=flat-square)
@@ -21,7 +21,7 @@ O **Ubuntu Setup** é um projeto de estudo e automação criado para facilitar a
 
 O foco é **praticar Linux, Bash, Git/GitHub e fundamentos de suporte técnico** com um projeto real, documentado e versionado.
 
-> **Versão atual: v1.0.0.** Esta é a primeira versão funcional do script. Os aprimoramentos serão desenvolvidos em branches e revisados por Pull Requests.
+> **Versão atual: v1.1.0.** Esta versão inclui o modo de simulação e testes automatizados. Os aprimoramentos serão desenvolvidos em branches e revisados por Pull Requests.
 
 ## ✨ Funcionalidades
 
