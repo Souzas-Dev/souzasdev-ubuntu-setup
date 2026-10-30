@@ -1,0 +1,12 @@
+# Segredos locais (nunca versionar)
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Temporarios e logs
+*.log
+*.tmp
+.DS_Store
