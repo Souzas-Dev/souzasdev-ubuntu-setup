@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Souzas Dev — Ubuntu Setup v1.0
+# Souzas Dev — Ubuntu Setup
 # Instala ferramentas essenciais APOS a instalacao definitiva do Ubuntu.
 set -Eeuo pipefail
 
@@ -68,10 +68,11 @@ command -v tee >/dev/null 2>&1 || falha "tee nao encontrado."
 umask 077
 LOG_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/souzasdev-ubuntu-setup"
 
-mkdir -p -- "$LOG_DIR"
-chmod 700 -- "$LOG_DIR"
+mkdir -p -- "$LOG_DIR" || falha "Nao foi possivel criar o diretorio de logs."
+chmod 700 -- "$LOG_DIR" || falha "Nao foi possivel proteger o diretorio de logs."
 
 LOG_FILE="$LOG_DIR/setup-$(date +%Y%m%d-%H%M%S)-$$.log"
+: > "$LOG_FILE" || falha "Nao foi possivel criar o arquivo de log."
 
 # Tratamento de falhas
 on_error() {

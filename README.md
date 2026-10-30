@@ -62,8 +62,8 @@ sudo apt-get install -y git
 ### 2. Clone o projeto
 
 ```bash
-git clone https://github.com/Souzas-Dev/souzasdev-ubuntu-setup.git
-cd souzasdev-ubuntu-setup
+git clone https://github.com/Souzas-Dev/ubuntu-workstation-setup.git
+cd ubuntu-workstation-setup
 ```
 
 ### 3. Leia e execute o script
@@ -107,7 +107,7 @@ Os testes verificam sintaxe, ajuda, simulacao e argumentos invalidos. Ainda nao 
 ## 📂 Estrutura do projeto
 
 ```text
-souzasdev-ubuntu-setup/
+ubuntu-workstation-setup/
 ├── scripts/
 │   └── setup-ubuntu.sh       # Automação principal
 ├── docs/
@@ -116,7 +116,7 @@ souzasdev-ubuntu-setup/
 └── README.md                 # Apresentação do projeto
 ```
 
-📖 [Guia completo de instalação](docs/guia-instalacao.md) · [Código-fonte do script](scripts/setup-ubuntu.sh) · [Marco inicial v1.0.0](https://github.com/Souzas-Dev/souzasdev-ubuntu-setup/tree/v1.0.0)
+📖 [Guia completo de instalação](docs/guia-instalacao.md) · [Código-fonte do script](scripts/setup-ubuntu.sh) · [Marco inicial v1.0.0](https://github.com/Souzas-Dev/ubuntu-workstation-setup/tree/v1.0.0)
 
 ## 🛡️ Segurança e limitações
 
