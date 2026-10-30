@@ -4,7 +4,7 @@
 
 **Automação em Bash para preparar o Ubuntu com ferramentas essenciais de desenvolvimento e suporte técnico.**
 
-![Versão](https://img.shields.io/badge/vers%C3%A3o-v1.1.0-2563eb?style=flat-square)
+![Versão](https://img.shields.io/badge/vers%C3%A3o-v1.2.0-2563eb?style=flat-square)
 ![Bash](https://img.shields.io/badge/shell-Bash-4EAA25?style=flat-square&logo=gnubash&logoColor=white)
 ![Ubuntu](https://img.shields.io/badge/plataforma-Ubuntu-E95420?style=flat-square&logo=ubuntu&logoColor=white)
 ![Status](https://img.shields.io/badge/status-em%20evolu%C3%A7%C3%A3o-64748b?style=flat-square)
@@ -21,7 +21,7 @@ O **Ubuntu Setup** é um projeto de estudo e automação criado para facilitar a
 
 O foco é **praticar Linux, Bash, Git/GitHub e fundamentos de suporte técnico** com um projeto real, documentado e versionado.
 
-> **Versão atual: v1.1.0.** Esta versão inclui o modo de simulação e testes automatizados. Os aprimoramentos serão desenvolvidos em branches e revisados por Pull Requests.
+> **Versão atual: v1.2.0.** Esta versão inclui simulação, testes automatizados, logs e tratamento básico de erros. Os aprimoramentos serão desenvolvidos em branches e revisados por Pull Requests.
 
 ## ✨ Funcionalidades
 
@@ -127,7 +127,7 @@ ubuntu-workstation-setup/
 - O projeto inclui simulação, testes Bash e logs em desenvolvimento. A instalação real ainda não possui testes de integração.
 - O uso previsto é em uma instalação Ubuntu. Outros ambientes, como Windows/Git Bash, não são adequados à instalação real; compatibilidade com WSL não foi validada.
 
-## 📝 Logs e diagnóstico (v1.2.0 em desenvolvimento)
+## 📝 Logs e diagnóstico (v1.2.0)
 
 Durante uma execução real no Ubuntu, o script registra as mensagens
 do terminal em arquivos locais para facilitar o diagnóstico.
@@ -169,7 +169,7 @@ Os testes atuais não executam instalações reais com APT.
 As próximas melhorias serão desenvolvidas separadamente, em branches próprias, com revisão antes da integração à `main`.
 
 - [x] Modo `--dry-run` para simular comandos com segurança.
-- [ ] Registros de execução (logs) e tratamento de erros mais detalhado.
+- [x] Registros de execução (logs) e tratamento básico de erros.
 - [x] Testes automatizados de sintaxe e comportamento básico.
 - [ ] Instalação modular por grupos de ferramentas.
 - [ ] Configurações opcionais para ambiente de desenvolvimento.
