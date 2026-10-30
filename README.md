@@ -4,7 +4,7 @@
 
 **Automação em Bash para preparar o Ubuntu com ferramentas essenciais de desenvolvimento e suporte técnico.**
 
-![Versão](https://img.shields.io/badge/vers%C3%A3o-v1.0.0-2563eb?style=flat-square)
+![Versão](https://img.shields.io/badge/vers%C3%A3o-v1.1.0-2563eb?style=flat-square)
 ![Bash](https://img.shields.io/badge/shell-Bash-4EAA25?style=flat-square&logo=gnubash&logoColor=white)
 ![Ubuntu](https://img.shields.io/badge/plataforma-Ubuntu-E95420?style=flat-square&logo=ubuntu&logoColor=white)
 ![Status](https://img.shields.io/badge/status-em%20evolu%C3%A7%C3%A3o-64748b?style=flat-square)
@@ -21,7 +21,7 @@ O **Ubuntu Setup** é um projeto de estudo e automação criado para facilitar a
 
 O foco é **praticar Linux, Bash, Git/GitHub e fundamentos de suporte técnico** com um projeto real, documentado e versionado.
 
-> **Versão atual: v1.0.0.** Esta é a primeira versão funcional do script. Os aprimoramentos serão desenvolvidos em branches e revisados por Pull Requests.
+> **Versão atual: v1.1.0.** Esta versão inclui o modo de simulação e testes automatizados. Os aprimoramentos serão desenvolvidos em branches e revisados por Pull Requests.
 
 ## ✨ Funcionalidades
 
@@ -77,6 +77,32 @@ bash scripts/setup-ubuntu.sh
 
 O próprio script solicitará autorização via `sudo`. **Não execute com `sudo bash scripts/setup-ubuntu.sh`**, pois ele exige que o processo seja iniciado por um usuário comum.
 
+### Modo de simulacao (--dry-run)
+
+Antes de instalar ferramentas, podemos visualizar os comandos que seriam executados:
+
+```bash
+bash scripts/setup-ubuntu.sh --dry-run
+```
+
+A simulacao nao solicita sudo e nao modifica pacotes do sistema.
+
+Para visualizar as opcoes:
+
+```bash
+bash scripts/setup-ubuntu.sh --help
+```
+
+### Testes automatizados
+
+Execute:
+
+```bash
+bash tests/test-dry-run.sh
+```
+
+Os testes verificam sintaxe, ajuda, simulacao e argumentos invalidos. Ainda nao substituem testes de integracao em Ubuntu.
+
 ## 📂 Estrutura do projeto
 
 ```text
@@ -97,16 +123,16 @@ souzasdev-ubuntu-setup/
 - O script **não** particiona ou formata discos, modifica drivers de vídeo deliberadamente nem reinicia a máquina.
 - A instalação exige privilégios administrativos para os comandos APT.
 - Não armazene senhas, tokens, chaves privadas ou arquivos `.env` no repositório.
-- A versão atual **não possui modo de simulação, logs próprios ou suíte automatizada de testes**. Esses recursos estão no planejamento.
+- O projeto agora inclui simulacao e testes Bash basicos. Logs proprios e testes de integracao ainda estao planejados.
 - O uso previsto é em uma instalação Ubuntu. Outros ambientes, como Windows/Git Bash, não são adequados à instalação real; compatibilidade com WSL não foi validada.
 
 ## 🗺️ Roadmap
 
 As próximas melhorias serão desenvolvidas separadamente, em branches próprias, com revisão antes da integração à `main`.
 
-- [ ] Modo `--dry-run` para simular comandos com segurança.
+- [x] Modo `--dry-run` para simular comandos com segurança.
 - [ ] Registros de execução (logs) e tratamento de erros mais detalhado.
-- [ ] Testes automatizados de sintaxe e comportamento básico.
+- [x] Testes automatizados de sintaxe e comportamento básico.
 - [ ] Instalação modular por grupos de ferramentas.
 - [ ] Configurações opcionais para ambiente de desenvolvimento.
 
