@@ -22,6 +22,11 @@ def testar_interface():
 
     assert "Ubuntu Workstation Setup" in janela.windowTitle()
     assert janela.console.isReadOnly()
+    assert janela.paginas.count() == 4
+
+    for indice, botao in enumerate(janela.menu_botoes):
+        botao.click()
+        assert janela.paginas.currentIndex() == indice
 
     print("[TESTE] Executando simulacao Bash...")
 
@@ -50,10 +55,10 @@ def testar_interface():
 
     saida = janela.console.toPlainText()
 
-    assert "[SIMULACAO SEGURA]" in saida
+    assert "[SIMULAÇÃO SEGURA]" in saida
     assert "sudo apt-get update" in saida
     assert "sudo apt-get install -y" in saida
-    assert "[OK] Simulacao concluida." in saida
+    assert "[OK] Simulação concluída." in saida
     assert janela.botao.isEnabled()
 
     janela.close()
