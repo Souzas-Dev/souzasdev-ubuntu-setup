@@ -15,6 +15,8 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
+from gui.widgets.logs_page import LogsPage
+
 
 class UbuntuSetup(QMainWindow):
     def __init__(self):
@@ -232,18 +234,11 @@ class UbuntuSetup(QMainWindow):
     def criar_logs(self):
         layout = self.pagina_base(
             "Logs",
-            "Registros e informações de diagnóstico."
+            "Histórico de execuções e informações de diagnóstico."
         )
 
-        layout.addWidget(
-            self.cartao(
-                "Histórico de execuções",
-                "A leitura dos arquivos de log será "
-                "implementada em uma próxima etapa."
-            )
-        )
-
-        layout.addStretch()
+        self.logs_viewer = LogsPage()
+        layout.addWidget(self.logs_viewer, 1)
 
     def configurar_processo(self):
         raiz = Path(__file__).resolve().parents[2]
@@ -405,6 +400,29 @@ class UbuntuSetup(QMainWindow):
             }
             QPushButton#runButton:disabled {
                 background-color: #475569;
+            }
+            QListWidget {
+                background-color: #0b1220;
+                border: 1px solid #34445b;
+                border-radius: 8px;
+                padding: 6px;
+            }
+            QListWidget::item {
+                padding: 10px;
+                border-radius: 6px;
+            }
+            QListWidget::item:selected {
+                background-color: #2563eb;
+            }
+            QPushButton#refreshButton {
+                background-color: #2563eb;
+                border: none;
+                border-radius: 8px;
+                padding: 10px 18px;
+                font-weight: bold;
+            }
+            QPushButton#refreshButton:hover {
+                background-color: #3b82f6;
             }
             QPlainTextEdit {
                 background-color: #0b1220;
